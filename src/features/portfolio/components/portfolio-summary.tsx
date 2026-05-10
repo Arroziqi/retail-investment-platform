@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query'
 import { TrendingUp, TrendingDown, Wallet } from 'lucide-react'
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Skeleton } from '@/components/ui/skeleton'
+import { PortfolioSummarySkeleton } from '@/components/ui/skeletons/portfolio-skeleton'
 import { apiClient } from '@/lib/api-client'
 import { PortfolioSummary as IPortfolioSummary } from '@/types/portfolio'
 
@@ -15,20 +15,7 @@ export function PortfolioSummary() {
   })
 
   if (isLoading) {
-    return (
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {Array.from({ length: 4 }).map((_, i) => (
-          <Card key={i}>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <Skeleton className="h-4 w-[100px]" />
-            </CardHeader>
-            <CardContent>
-              <Skeleton className="h-8 w-[120px]" />
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    )
+    return <PortfolioSummarySkeleton />
   }
 
   if (!summary) return null

@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter }
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Skeleton } from '@/components/ui/skeleton'
+import { FundListSkeleton } from '@/components/ui/skeletons/fund-skeleton'
 import { apiClient } from '@/lib/api-client'
 import { Fund, FundCategory } from '@/types/fund'
 
@@ -60,18 +60,7 @@ export function FundList() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {isLoading ? (
-          Array.from({ length: 6 }).map((_, i) => (
-            <Card key={i} className="overflow-hidden">
-              <CardHeader className="space-y-2">
-                <Skeleton className="h-4 w-1/2" />
-                <Skeleton className="h-6 w-3/4" />
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <Skeleton className="h-10 w-full" />
-                <Skeleton className="h-10 w-full" />
-              </CardContent>
-            </Card>
-          ))
+          <FundListSkeleton />
         ) : funds?.length === 0 ? (
           <div className="col-span-full text-center py-12">
             <p className="text-muted-foreground">No funds found matching your criteria.</p>

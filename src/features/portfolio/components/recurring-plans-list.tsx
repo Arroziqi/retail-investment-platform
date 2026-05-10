@@ -7,6 +7,7 @@ import { toast } from 'sonner'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { RecurringPlanSkeleton } from '@/components/ui/skeletons/portfolio-skeleton'
 import { RecurringPlan } from '@/types/recurring'
 import { formatDisplayDate } from '@/features/fund-catalog/lib/sip-utils'
 
@@ -39,17 +40,7 @@ export function RecurringPlansList() {
   })
 
   if (isLoading) {
-    return (
-      <Card>
-        <CardHeader>
-          <CardTitle>Recurring Plans</CardTitle>
-          <CardDescription>Loading your automated investments...</CardDescription>
-        </CardHeader>
-        <CardContent className="flex justify-center py-6">
-          <Loader2 className="h-6 w-6 animate-spin text-primary" />
-        </CardContent>
-      </Card>
-    )
+    return <RecurringPlanSkeleton />
   }
 
   const activePlans = plans?.filter(p => p.status === 'active') || []
@@ -59,7 +50,7 @@ export function RecurringPlansList() {
       <Card>
         <CardHeader>
           <CardTitle>Recurring Plans</CardTitle>
-          <CardDescription>You don't have any active recurring plans.</CardDescription>
+          <CardDescription>You don&apos;t have any active recurring plans.</CardDescription>
         </CardHeader>
         <CardContent>
           <p className="text-sm text-muted-foreground">

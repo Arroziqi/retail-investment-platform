@@ -10,7 +10,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { Badge } from '@/components/ui/badge'
-import { Skeleton } from '@/components/ui/skeleton'
+import { OrderHistorySkeleton } from '@/components/ui/skeletons/portfolio-skeleton'
 import { apiClient } from '@/lib/api-client'
 import { Order } from '@/types/portfolio'
 
@@ -21,13 +21,7 @@ export function OrderHistory() {
   })
 
   if (isLoading) {
-    return (
-      <div className="space-y-3">
-        <Skeleton className="h-10 w-full" />
-        <Skeleton className="h-20 w-full" />
-        <Skeleton className="h-20 w-full" />
-      </div>
-    )
+    return <OrderHistorySkeleton />
   }
 
   return (

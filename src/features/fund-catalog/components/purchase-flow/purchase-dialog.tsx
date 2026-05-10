@@ -1,7 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { CheckCircle2, Calendar } from 'lucide-react'
+import { CheckCircle2 } from 'lucide-react'
+import { format } from 'date-fns'
 
 import {
   Dialog,
@@ -105,7 +106,7 @@ export function PurchaseDialog({ fund, isOpen, onClose }: PurchaseDialogProps) {
               </DialogDescription>
             </DialogHeader>
             
-            <Tabs defaultValue="one-time" className="w-full" onValueChange={(v) => setPurchaseType(v as any)}>
+            <Tabs defaultValue="one-time" className="w-full" onValueChange={(v) => setPurchaseType(v as 'one-time' | 'recurring')}>
               <TabsList className="grid w-full grid-cols-2">
                 <TabsTrigger value="one-time">One-time</TabsTrigger>
                 <TabsTrigger value="recurring">Recurring (SIP)</TabsTrigger>

@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import { CalendarIcon } from 'lucide-react'
 import { format } from 'date-fns'
 
@@ -79,7 +78,7 @@ export function RecurringSetup({
       <div className="space-y-2">
         <Label>Start Date</Label>
         <Popover>
-          <PopoverTrigger asChild>
+          <PopoverTrigger render={
             <Button
               variant={"outline"}
               className={cn(
@@ -90,14 +89,13 @@ export function RecurringSetup({
               <CalendarIcon className="mr-2 h-4 w-4" />
               {startDate ? format(startDate, "PPP") : <span>Pick a date</span>}
             </Button>
-          </PopoverTrigger>
+          } />
           <PopoverContent className="w-auto p-0">
             <Calendar
               mode="single"
               selected={startDate}
               onSelect={setStartDate}
               disabled={(date) => date < new Date(new Date().setHours(0, 0, 0, 0))}
-              initialFocus
             />
           </PopoverContent>
         </Popover>

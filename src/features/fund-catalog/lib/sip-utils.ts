@@ -1,5 +1,5 @@
 import { addDays, addMonths, format, startOfDay } from 'date-fns';
-import { RecurringFrequency } from '../../types/recurring';
+import { RecurringFrequency } from '@/types/recurring';
 
 export function calculateNextExecutionDate(startDate: Date, frequency: RecurringFrequency): Date {
   const start = startOfDay(startDate);

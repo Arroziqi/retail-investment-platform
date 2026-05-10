@@ -3,6 +3,7 @@
 import { TrendingUp, AlertCircle, Info, CheckCircle } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { InsightSkeleton } from '@/components/ui/skeletons/insight-skeleton'
 
 interface Insight {
   id: string;
@@ -36,7 +37,11 @@ const mockInsights: Insight[] = [
   },
 ];
 
-export function InsightsList() {
+export function InsightsList({ isLoading }: { isLoading?: boolean }) {
+  if (isLoading) {
+    return <InsightSkeleton />
+  }
+
   const getIcon = (type: Insight['type']) => {
     switch (type) {
       case 'performance': return <TrendingUp className="h-4 w-4 text-green-500" />
