@@ -10,7 +10,6 @@ test.describe('Navigation Responsiveness', () => {
     await expect(sidebar).toBeVisible();
     
     // Check BottomNav (md:hidden)
-    const bottomNav = page.locator('nav').filter({ has: page.locator('.lucide-layout-dashboard') }).last();
     // In our implementation, BottomNav is a 'nav' with fixed bottom-0
     const mobileNav = page.locator('nav.fixed.bottom-0');
     await expect(mobileNav).toBeHidden();

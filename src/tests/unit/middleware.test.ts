@@ -28,7 +28,7 @@ describe('Middleware Proxy', () => {
 
   it('should redirect unauthenticated users to login for protected routes', () => {
     const req = createRequest('/dashboard');
-    const res = proxy(req);
+    proxy(req);
     
     expect(NextResponse.redirect).toHaveBeenCalled();
     const redirectUrl = (NextResponse.redirect as jest.Mock).mock.calls[0][0];
@@ -37,7 +37,7 @@ describe('Middleware Proxy', () => {
 
   it('should allow public routes without authentication', () => {
     const req = createRequest('/login');
-    const res = proxy(req);
+    proxy(req);
     
     expect(NextResponse.next).toHaveBeenCalled();
   });
@@ -47,7 +47,7 @@ describe('Middleware Proxy', () => {
       'session-token': 'valid',
       'kyc-status': 'Unverified'
     });
-    const res = proxy(req);
+    proxy(req);
     
     expect(NextResponse.redirect).toHaveBeenCalled();
     const redirectUrl = (NextResponse.redirect as jest.Mock).mock.calls[0][0];
@@ -59,7 +59,7 @@ describe('Middleware Proxy', () => {
       'session-token': 'valid',
       'kyc-status': 'Pending'
     });
-    const res = proxy(req);
+    proxy(req);
     
     expect(NextResponse.redirect).toHaveBeenCalled();
     const redirectUrl = (NextResponse.redirect as jest.Mock).mock.calls[0][0];
@@ -71,7 +71,7 @@ describe('Middleware Proxy', () => {
       'session-token': 'valid',
       'kyc-status': 'Verified'
     });
-    const res = proxy(req);
+    proxy(req);
     
     expect(NextResponse.next).toHaveBeenCalled();
   });

@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Responsive Navigation', () => {
-  test.beforeEach(async ({ context, page }) => {
+  test.beforeEach(async ({ context }) => {
     // Ensure we are logged in and verified for navigation tests
     await context.addCookies([
       { name: 'session-token', value: 'mock-token', domain: 'localhost', path: '/' },

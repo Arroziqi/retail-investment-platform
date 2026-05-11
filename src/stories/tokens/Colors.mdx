@@ -1,0 +1,54 @@
+import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs/blocks";
+
+<Meta title="Design System/Tokens/Colors" />
+
+# Color Palette
+
+Our color system is built with modern OKLCH values, ensuring consistent lightness and chroma across different hues.
+
+## Marketing Branding
+These colors are used exclusively for the marketing landing page and promotional materials.
+
+<ColorPalette>
+  <ColorItem 
+    title="Marketing Brand" 
+    subtitle="--marketing-brand" 
+    colors={{ Primary: 'oklch(0.627 0.265 303.9)' }} 
+  />
+  <ColorItem 
+    title="Marketing Accent" 
+    subtitle="--marketing-accent" 
+    colors={{ Secondary: 'oklch(0.768 0.233 130.8)' }} 
+  />
+</ColorPalette>
+
+## Semantic Tokens
+These tokens are used throughout the application to maintain consistency.
+
+<ColorPalette>
+  <ColorItem 
+    title="Background" 
+    subtitle="--background" 
+    colors={{ Light: 'oklch(1 0 0)', Dark: 'oklch(0.145 0 0)' }} 
+  />
+  <ColorItem 
+    title="Foreground" 
+    subtitle="--foreground" 
+    colors={{ Light: 'oklch(0.145 0 0)', Dark: 'oklch(0.985 0 0)' }} 
+  />
+  <ColorItem 
+    title="Primary" 
+    subtitle="--primary" 
+    colors={{ Default: 'oklch(0.205 0 0)' }} 
+  />
+  <ColorItem 
+    title="Muted" 
+    subtitle="--muted" 
+    colors={{ Default: 'oklch(0.97 0 0)' }} 
+  />
+  <ColorItem 
+    title="Destructive" 
+    subtitle="--destructive" 
+    colors={{ Default: 'oklch(0.577 0.245 27.325)' }} 
+  />
+</ColorPalette>

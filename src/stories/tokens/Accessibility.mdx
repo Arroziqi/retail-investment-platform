@@ -1,0 +1,38 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Design System/Tokens/Accessibility" />
+
+# Accessibility Guidelines
+
+The platform is built to comply with **WCAG 2.1 AA** standards.
+
+## Principles
+
+1.  **Keyboard Navigable**: All interactive elements must be reachable and operable via keyboard.
+2.  **Sufficient Contrast**: Text and interactive elements must meet contrast ratios (4.5:1 for normal text).
+3.  **Screen Reader Friendly**: Use semantic HTML and ARIA labels where necessary.
+4.  **Clear Focus States**: Never remove default focus rings without providing a highly visible alternative.
+
+## Implementation Patterns
+
+### ARIA Labels
+Use `aria-label` for icon-only buttons or when the visual text is not descriptive enough for assistive technologies.
+
+```tsx
+<Button size="icon" aria-label="Search portfolio">
+  <Search className="h-4 w-4" />
+</Button>
+```
+
+### Form Fields
+Always associate labels with inputs using `id` and `htmlFor` (or Radix/Shadcn primitives).
+
+```tsx
+<div className="grid gap-1.5">
+  <Label htmlFor="email">Email Address</Label>
+  <Input id="email" type="email" placeholder="name@example.com" />
+</div>
+```
+
+### Visual Feedback
+Ensure success and error states are not communicated by color alone. Use icons or text descriptions.
