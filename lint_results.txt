@@ -1,0 +1,72 @@
+
+> retail-investment-platform@0.1.0 lint
+> eslint
+
+
+/home/ozi-fedora/Documents/portfolio/fe/retail-investment-platform/public/mockServiceWorker.js
+  1:1  warning  Unused eslint-disable directive (no problems were reported)
+
+/home/ozi-fedora/Documents/portfolio/fe/retail-investment-platform/src/components/dashboard/AllocationChart.stories.tsx
+  1:1  error  Do not import renderer package "@storybook/react" directly. Use a framework package instead (e.g. @storybook/nextjs, @storybook/react-vite, @storybook/nextjs-vite, @storybook/react-webpack5, @storybook/react-native-web-vite)  storybook/no-renderer-packages
+
+/home/ozi-fedora/Documents/portfolio/fe/retail-investment-platform/src/components/dashboard/PerformanceTrend.stories.tsx
+  1:1  error  Do not import renderer package "@storybook/react" directly. Use a framework package instead (e.g. @storybook/nextjs, @storybook/react-vite, @storybook/nextjs-vite, @storybook/react-webpack5, @storybook/react-native-web-vite)  storybook/no-renderer-packages
+
+/home/ozi-fedora/Documents/portfolio/fe/retail-investment-platform/src/components/dashboard/PerformanceTrend.tsx
+  68:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/home/ozi-fedora/Documents/portfolio/fe/retail-investment-platform/src/components/marketing/DashboardPreview.stories.tsx
+  1:1  error  Do not import renderer package "@storybook/react" directly. Use a framework package instead (e.g. @storybook/nextjs, @storybook/react-vite, @storybook/nextjs-vite, @storybook/react-webpack5, @storybook/react-native-web-vite)  storybook/no-renderer-packages
+
+/home/ozi-fedora/Documents/portfolio/fe/retail-investment-platform/src/components/marketing/Features.stories.tsx
+  1:1  error  Do not import renderer package "@storybook/react" directly. Use a framework package instead (e.g. @storybook/nextjs, @storybook/react-vite, @storybook/nextjs-vite, @storybook/react-webpack5, @storybook/react-native-web-vite)  storybook/no-renderer-packages
+
+/home/ozi-fedora/Documents/portfolio/fe/retail-investment-platform/src/components/marketing/Hero.stories.tsx
+  1:1  error  Do not import renderer package "@storybook/react" directly. Use a framework package instead (e.g. @storybook/nextjs, @storybook/react-vite, @storybook/nextjs-vite, @storybook/react-webpack5, @storybook/react-native-web-vite)  storybook/no-renderer-packages
+
+/home/ozi-fedora/Documents/portfolio/fe/retail-investment-platform/src/components/marketing/ProjectContext.stories.tsx
+  1:1  error  Do not import renderer package "@storybook/react" directly. Use a framework package instead (e.g. @storybook/nextjs, @storybook/react-vite, @storybook/nextjs-vite, @storybook/react-webpack5, @storybook/react-native-web-vite)  storybook/no-renderer-packages
+
+/home/ozi-fedora/Documents/portfolio/fe/retail-investment-platform/src/components/marketing/ProjectContext.tsx
+  86:36  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  86:45  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/home/ozi-fedora/Documents/portfolio/fe/retail-investment-platform/src/components/marketing/TechStack.stories.tsx
+  1:1  error  Do not import renderer package "@storybook/react" directly. Use a framework package instead (e.g. @storybook/nextjs, @storybook/react-vite, @storybook/nextjs-vite, @storybook/react-webpack5, @storybook/react-native-web-vite)  storybook/no-renderer-packages
+
+/home/ozi-fedora/Documents/portfolio/fe/retail-investment-platform/src/components/ui/button.stories.tsx
+  1:1  error  Do not import renderer package "@storybook/react" directly. Use a framework package instead (e.g. @storybook/nextjs, @storybook/react-vite, @storybook/nextjs-vite, @storybook/react-webpack5, @storybook/react-native-web-vite)  storybook/no-renderer-packages
+
+/home/ozi-fedora/Documents/portfolio/fe/retail-investment-platform/src/components/ui/card.stories.tsx
+  1:1  error  Do not import renderer package "@storybook/react" directly. Use a framework package instead (e.g. @storybook/nextjs, @storybook/react-vite, @storybook/nextjs-vite, @storybook/react-webpack5, @storybook/react-native-web-vite)  storybook/no-renderer-packages
+
+/home/ozi-fedora/Documents/portfolio/fe/retail-investment-platform/src/components/ui/input.stories.tsx
+  1:1  error  Do not import renderer package "@storybook/react" directly. Use a framework package instead (e.g. @storybook/nextjs, @storybook/react-vite, @storybook/nextjs-vite, @storybook/react-webpack5, @storybook/react-native-web-vite)  storybook/no-renderer-packages
+
+/home/ozi-fedora/Documents/portfolio/fe/retail-investment-platform/src/features/auth-kyc/components/kyc-wizard.tsx
+  50:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/home/ozi-fedora/Documents/portfolio/fe/retail-investment-platform/src/hooks/useAnalytics.ts
+  19:75  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  20:32  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/home/ozi-fedora/Documents/portfolio/fe/retail-investment-platform/src/stories/Page.tsx
+  39:13  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  39:18  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/home/ozi-fedora/Documents/portfolio/fe/retail-investment-platform/src/tests/e2e/navigation.spec.ts
+  13:11  warning  'bottomNav' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/home/ozi-fedora/Documents/portfolio/fe/retail-investment-platform/src/tests/unit/middleware.test.ts
+  31:11  warning  'res' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  40:11  warning  'res' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  50:11  warning  'res' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  62:11  warning  'res' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  74:11  warning  'res' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/home/ozi-fedora/Documents/portfolio/fe/retail-investment-platform/tests/e2e/navigation.spec.ts
+  4:37  warning  'page' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 26 problems (18 errors, 8 warnings)
+  0 errors and 1 warning potentially fixable with the `--fix` option.
+

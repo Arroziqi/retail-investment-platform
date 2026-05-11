@@ -49,20 +49,22 @@ export function RecurringSetup({
           placeholder={`Min. Rp ${minInvestment.toLocaleString()}`}
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
+          aria-describedby={amount && !isValidAmount ? "recurring-amount-error" : undefined}
         />
         {amount && !isValidAmount && (
-          <p className="text-xs text-destructive">
+          <p id="recurring-amount-error" className="text-xs text-destructive">
             Amount must be at least Rp {minInvestment.toLocaleString()}
           </p>
         )}
       </div>
 
       <div className="space-y-3">
-        <Label>Frequency</Label>
+        <Label id="frequency-label">Frequency</Label>
         <RadioGroup 
           defaultValue={frequency} 
           onValueChange={(val) => setFrequency(val as RecurringFrequency)}
           className="flex gap-4"
+          aria-labelledby="frequency-label"
         >
           <div className="flex items-center space-x-2">
             <RadioGroupItem value="weekly" id="weekly" />

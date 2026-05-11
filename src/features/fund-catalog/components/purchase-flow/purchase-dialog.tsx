@@ -21,6 +21,7 @@ import { useUserStore } from '@/lib/stores/user-store'
 import { RecurringFrequency } from '@/types/recurring'
 import { RecurringSetup } from './recurring-setup'
 import { calculateNextExecutionDate, formatDisplayDate } from '../../lib/sip-utils'
+import { useAnalytics } from '@/hooks/useAnalytics'
 
 interface PurchaseDialogProps {
   fund: Fund | null;
@@ -36,6 +37,7 @@ export function PurchaseDialog({ fund, isOpen, onClose }: PurchaseDialogProps) {
   const [startDate, setStartDate] = useState<Date | undefined>(new Date())
   const [isSubmitting, setIsSubmitting] = useState(false)
   const { kycStatus } = useUserStore()
+  const { track } = useAnalytics()
 
   if (!fund) return null
 
@@ -76,6 +78,10 @@ export function PurchaseDialog({ fund, isOpen, onClose }: PurchaseDialogProps) {
     })
 
     await new Promise(resolve => setTimeout(resolve, 1500))
+    track({ 
+      type: 'PURCHASE_SUCCESS', 
+      payload: { fundId: fund.id, amount: Number(amount) } 
+    })
     setIsSubmitting(false)
     setStep(3)
   }
@@ -121,9 +127,10 @@ export function PurchaseDialog({ fund, isOpen, onClose }: PurchaseDialogProps) {
                     placeholder={`Min. Rp ${fund.minInvestment.toLocaleString()}`}
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
+                    aria-describedby={amount && !isValidAmount ? "amount-error" : undefined}
                   />
                   {amount && !isValidAmount && (
-                    <p className="text-xs text-destructive">
+                    <p id="amount-error" className="text-xs text-destructive">
                       Amount must be at least Rp {fund.minInvestment.toLocaleString()}
                     </p>
                   )}
@@ -202,7 +209,7 @@ export function PurchaseDialog({ fund, isOpen, onClose }: PurchaseDialogProps) {
         {step === 3 && (
           <div className="py-12 flex flex-col items-center text-center space-y-4">
             <CheckCircle2 className="h-16 w-16 text-green-500" />
-            <div className="space-y-2">
+            <div className="space-y-2" aria-live="polite">
               <h3 className="text-xl font-bold">
                 {purchaseType === 'one-time' ? 'Investment Successful!' : 'Plan Created!'}
               </h3>

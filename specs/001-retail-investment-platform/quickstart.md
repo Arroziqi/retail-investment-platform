@@ -1,6 +1,6 @@
 # Quickstart: Retail Investment Platform
 
-Welcome to the Retail Investment Platform development environment. This project uses Next.js 15, MSW for API mocking, and Storybook for UI documentation.
+Welcome to the Retail Investment Platform development environment. This project uses Next.js 15 and MSW for API mocking.
 
 ## 1. Setup Environment
 
@@ -10,7 +10,7 @@ Ensure you have Node.js 18+ installed.
 # Install dependencies
 npm install
 
-# Initialize MSW service worker
+# Initialize MSW service worker (if not already done)
 npx msw init ./public
 ```
 
@@ -20,12 +20,6 @@ npx msw init ./public
 Starts the Next.js app with MSW enabled.
 ```bash
 npm run dev
-```
-
-### Start Storybook
-View and develop UI components in isolation.
-```bash
-npm run storybook
 ```
 
 ### Run Tests
