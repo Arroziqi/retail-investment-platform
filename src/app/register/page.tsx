@@ -21,6 +21,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { apiClient } from '@/lib/api-client'
 import { useUserStore } from '@/lib/stores/user-store'
 import { User } from '@/types/user'
+import { setAuthSession } from '@/lib/auth/actions'
 
 const registerSchema = z.object({
   email: z.string().email({ message: 'Invalid email address' }),
@@ -50,9 +51,11 @@ export default function RegisterPage() {
   const mutation = useMutation({
     mutationFn: (values: RegisterValues) => 
       apiClient<{ user: User; token: string }>('/api/auth/register', { body: values }),
-    onSuccess: (data) => {
+    onSuccess: async (data) => {
       setUser(data.user)
+      await setAuthSession(data.user, data.token)
       router.push('/onboarding/kyc')
+      router.refresh()
     },
     onError: (err: Error) => {
       setError(err.message || 'Registration failed')

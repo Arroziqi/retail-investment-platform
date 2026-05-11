@@ -51,16 +51,17 @@ export function RiskProfilerWizard() {
     <Card className="w-full max-w-2xl mx-auto">
       <CardHeader>
         <CardTitle>Risk Profiling Questionnaire</CardTitle>
-        <CardDescription>
+        <CardDescription aria-live="polite">
           Question {currentQuestionIndex + 1} of {riskQuestions.length}
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
-        <h3 className="text-lg font-medium">{currentQuestion.text}</h3>
+        <h3 id="question-text" className="text-lg font-medium">{currentQuestion.text}</h3>
         <RadioGroup 
           value={answers[currentQuestion.id]?.toString()} 
           onValueChange={handleSelect}
           className="space-y-3"
+          aria-labelledby="question-text"
         >
           {currentQuestion.options.map((option, index) => (
             <div key={index} className="flex items-center space-x-3 space-y-0">

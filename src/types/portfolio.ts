@@ -30,3 +30,15 @@ export interface PortfolioSummary {
   percentageReturn: number;
   holdings: Holding[];
 }
+
+export interface PortfolioSnapshot {
+  date: string;
+  totalValue: number;
+  investedValue: number;
+}
+
+export interface AllocationData {
+  name: string;
+  value: number;
+  color: string;
+}

@@ -1,7 +1,7 @@
 'use client'
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { Calendar, Trash2, Loader2 } from 'lucide-react'
+import { Calendar, Trash2 } from 'lucide-react'
 import { toast } from 'sonner'
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'

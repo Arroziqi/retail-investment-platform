@@ -36,7 +36,11 @@ export function RecommendationsView({ recommendation, score }: RecommendationsVi
                 <span>{asset.category}</span>
                 <span>{asset.percentage}%</span>
               </div>
-              <Progress value={asset.percentage} className="h-2" />
+              <Progress 
+                value={asset.percentage} 
+                className="h-2" 
+                aria-label={`${asset.category} allocation: ${asset.percentage}%`}
+              />
             </div>
           ))}
         </div>

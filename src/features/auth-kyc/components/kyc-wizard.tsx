@@ -19,6 +19,8 @@ import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card'
 import { useUserStore } from '@/lib/stores/user-store'
 import { apiClient } from '@/lib/api-client'
+import { updateKycStatusCookie } from '@/lib/auth/actions'
+import { useAnalytics } from '@/hooks/useAnalytics'
 
 const kycSchema = z.object({
   fullName: z.string().min(3, 'Full name is required'),
@@ -31,6 +33,7 @@ type KYCValues = z.infer<typeof kycSchema>
 export function KYCWizard() {
   const router = useRouter()
   const { setKycStatus, kycStep: step, setKycStep: setStep } = useUserStore()
+  const { trackEvent } = useAnalytics()
 
   const form = useForm<KYCValues>({
     resolver: zodResolver(kycSchema),
@@ -44,9 +47,18 @@ export function KYCWizard() {
   const mutation = useMutation({
     mutationFn: (values: KYCValues) => 
       apiClient('/api/kyc/submit', { body: values }),
-    onSuccess: () => {
-      setKycStatus('Pending')
-      router.push('/onboarding/risk-profile')
+    onSuccess: async (data: any) => {
+      const status = data.status || 'Pending'
+      setKycStatus(status)
+      await updateKycStatusCookie(status)
+      trackEvent('KYC_COMPLETE')
+      
+      if (status === 'Verified') {
+        router.push('/dashboard')
+      } else {
+        router.push('/onboarding/risk-profile')
+      }
+      router.refresh()
     },
   })
 
@@ -68,7 +80,7 @@ export function KYCWizard() {
   return (
     <Card className="w-full max-w-2xl mx-auto">
       <CardHeader>
-        <CardTitle>KYC Onboarding - Step {step} of 3</CardTitle>
+        <CardTitle aria-live="polite">KYC Onboarding - Step {step} of 3</CardTitle>
         <CardDescription>
           {step === 1 && "Personal Information"}
           {step === 2 && "Identity Verification"}
@@ -77,7 +89,12 @@ export function KYCWizard() {
       </CardHeader>
       <CardContent>
         <Form {...form}>
-          <form id="kyc-form" onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <form 
+            id="kyc-form" 
+            onSubmit={form.handleSubmit(onSubmit)} 
+            className="space-y-4"
+            aria-label={`KYC Step ${step}: ${step === 1 ? 'Personal Info' : step === 2 ? 'Identity' : 'Review'}`}
+          >
             {step === 1 && (
               <>
                 <FormField

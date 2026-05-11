@@ -117,9 +117,9 @@
 **Purpose**: Improvements that affect multiple user stories
 
 - [x] T037 [P] Implement loading skeletons for all data-fetching states in `src/components/ui/skeletons/`
-- [ ] T038 [P] Add ARIA labels and keyboard navigation to financial charts and forms
-- [ ] T039 [P] Performance: Lazy load Recharts and optimize bundle size for mobile
-- [ ] T040 Final validation of quickstart.md and README.md
+- [x] T038 [P] Add ARIA labels and keyboard navigation to financial charts and forms
+- [x] T039 [P] Performance: Lazy load Recharts and optimize bundle size for mobile
+- [x] T040 Final validation of quickstart.md and README.md
 
 ---
 
