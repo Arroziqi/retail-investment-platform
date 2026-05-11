@@ -51,7 +51,7 @@ export function PerformanceTrend({ data }: PerformanceTrendProps) {
                 axisLine={false}
                 tickLine={false}
                 tick={{ fontSize: 12, fill: 'hsl(var(--muted-foreground))' }}
-                tickFormatter={(date) => new Date(date).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
+                tickFormatter={(date) => new Date(date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
               />
               <YAxis 
                 axisLine={false}
@@ -65,7 +65,8 @@ export function PerformanceTrend({ data }: PerformanceTrendProps) {
                   borderColor: 'hsl(var(--border))',
                   borderRadius: '8px'
                 }}
-                formatter={(value: number | string) => [`IDR ${Number(value).toLocaleString()}`, 'Total Value']}
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                formatter={(value: any) => [`IDR ${Number(value).toLocaleString('en-US')}`, 'Total Value']}
               />
               <Area 
                 type="monotone" 

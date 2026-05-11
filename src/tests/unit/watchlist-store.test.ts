@@ -17,6 +17,7 @@ describe('useWatchlistStore', () => {
       assetType: 'Fund' as const,
       addedAt: new Date().toISOString(),
       assetName: 'Test Fund',
+      assetCategory: 'Equity',
     }
 
     act(() => {
@@ -39,6 +40,7 @@ describe('useWatchlistStore', () => {
           assetType: 'Fund',
           addedAt: new Date().toISOString(),
           assetName: `Fund ${i}`,
+          assetCategory: 'Equity',
         })
       }
     })
@@ -57,6 +59,7 @@ describe('useWatchlistStore', () => {
         assetType: 'Fund',
         addedAt: new Date().toISOString(),
         assetName: 'Test Fund',
+        assetCategory: 'Equity',
       })
     })
 
