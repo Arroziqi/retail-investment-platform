@@ -21,6 +21,7 @@ import { useUserStore } from '@/lib/stores/user-store'
 import { apiClient } from '@/lib/api-client'
 import { updateKycStatusCookie } from '@/lib/auth/actions'
 import { useAnalytics } from '@/hooks/useAnalytics'
+import { KYCStatus } from '@/types/user'
 
 const kycSchema = z.object({
   fullName: z.string().min(3, 'Full name is required'),
@@ -46,9 +47,9 @@ export function KYCWizard() {
 
   const mutation = useMutation({
     mutationFn: (values: KYCValues) => 
-      apiClient('/api/kyc/submit', { body: values }),
-    onSuccess: async (data: { status?: string }) => {
-      const status = data.status || 'Pending'
+      apiClient<{ status?: string }>('/api/kyc/submit', { body: values }),
+    onSuccess: async (data) => {
+      const status = (data.status || 'Pending') as KYCStatus
       setKycStatus(status)
       await updateKycStatusCookie(status)
       trackEvent('KYC_COMPLETE')

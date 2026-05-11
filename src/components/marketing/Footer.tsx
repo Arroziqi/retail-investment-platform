@@ -9,17 +9,17 @@ export function Footer() {
             <h3 className="text-sm font-bold">Product</h3>
             <Link href="#features" className="text-sm text-muted-foreground hover:text-marketing-brand">Features</Link>
             <Link href="#preview" className="text-sm text-muted-foreground hover:text-marketing-brand">Dashboard</Link>
-            <Link href="#pricing" className="text-sm text-muted-foreground hover:text-marketing-brand">Pricing</Link>
+            <Link href="/" className="text-sm text-muted-foreground hover:text-marketing-brand">Pricing (Coming Soon)</Link>
           </div>
           <div className="flex flex-col gap-2">
             <h3 className="text-sm font-bold">Resources</h3>
-            <Link href="/docs" className="text-sm text-muted-foreground hover:text-marketing-brand">Documentation</Link>
-            <Link href="/storybook" className="text-sm text-muted-foreground hover:text-marketing-brand">Storybook</Link>
+            <Link href="/" className="text-sm text-muted-foreground hover:text-marketing-brand">Documentation</Link>
+            <Link href="/" className="text-sm text-muted-foreground hover:text-marketing-brand">Storybook</Link>
           </div>
           <div className="flex flex-col gap-2">
             <h3 className="text-sm font-bold">Company</h3>
-            <Link href="/about" className="text-sm text-muted-foreground hover:text-marketing-brand">About</Link>
-            <Link href="/blog" className="text-sm text-muted-foreground hover:text-marketing-brand">Blog</Link>
+            <Link href="/" className="text-sm text-muted-foreground hover:text-marketing-brand">About</Link>
+            <Link href="/" className="text-sm text-muted-foreground hover:text-marketing-brand">Blog</Link>
           </div>
           <div className="flex flex-col gap-2">
             <h3 className="text-sm font-bold">Social</h3>
@@ -32,8 +32,8 @@ export function Footer() {
             © 2026 Retail Investment Platform. All rights reserved.
           </p>
           <div className="flex gap-4">
-            <Link href="/privacy" className="text-xs text-muted-foreground hover:underline">Privacy</Link>
-            <Link href="/terms" className="text-xs text-muted-foreground hover:underline">Terms</Link>
+            <Link href="/" className="text-xs text-muted-foreground hover:underline">Privacy</Link>
+            <Link href="/" className="text-xs text-muted-foreground hover:underline">Terms</Link>
           </div>
         </div>
       </div>
