@@ -154,4 +154,10 @@ export const handlers = [
     Object.assign(user, body)
     return HttpResponse.json(user)
   }),
+
+  http.post('/api/analytics/track', async ({ request }) => {
+    const event = await request.json()
+    console.log('[MSW] Track Event:', event)
+    return HttpResponse.json({ success: true }, { status: 201 })
+  }),
 ]

@@ -14,7 +14,8 @@ export function proxy(request: NextRequest) {
     pathname.startsWith('/api/auth') ||
     pathname.startsWith('/_next') ||
     pathname.includes('favicon.ico') ||
-    pathname.includes('mockServiceWorker.js');
+    pathname.includes('mockServiceWorker.js') ||
+    /\.(png|jpg|jpeg|gif|svg|webp|ico)$/i.test(pathname);
 
   console.log(`[Middleware] ${request.method} ${pathname} | isPublic: ${isPublicRoute}`);
 

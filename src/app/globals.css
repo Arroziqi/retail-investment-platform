@@ -39,6 +39,8 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-marketing-brand: var(--marketing-brand);
+  --color-marketing-accent: var(--marketing-accent);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -49,6 +51,8 @@
 }
 
 :root {
+  --marketing-brand: oklch(0.627 0.265 303.9);
+  --marketing-accent: oklch(0.768 0.233 130.8);
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -125,7 +129,7 @@
     @apply bg-background text-foreground;
   }
   html {
-    @apply font-sans;
+    @apply font-sans scroll-smooth;
   }
 }
 .page-transition {

@@ -16,8 +16,8 @@ export function useAnalytics() {
     }).catch(err => console.error('Failed to send analytics', err));
   }, []);
 
-  const trackEvent = useCallback((type: AnalyticsEvent['type'], payload?: any) => {
-    track({ type, payload } as any);
+  const trackEvent = useCallback((type: AnalyticsEvent['type'], payload?: Record<string, unknown>) => {
+    track({ type, payload } as AnalyticsEvent);
   }, [track]);
 
   return { track, trackEvent };

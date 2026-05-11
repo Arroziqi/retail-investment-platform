@@ -10,6 +10,7 @@ A modern, beginner-friendly retail investment platform built with Next.js 15, in
 - **Transactions**: Secure and clear 3-step purchase flow for mutual funds.
 - **Portfolio Management**: Real-time tracking of holdings, performance charts, and order history.
 - **Automation**: Setup recurring investment plans (SIP) for long-term wealth building.
+- **Design System**: Comprehensive component documentation and design tokens.
 - **Accessibility**: Built with WCAG 2.1 AA compliance in mind.
 
 ## 🛠️ Tech Stack
@@ -19,6 +20,7 @@ A modern, beginner-friendly retail investment platform built with Next.js 15, in
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/) & [shadcn/ui](https://ui.shadcn.com/)
 - **Charts**: [Recharts](https://recharts.org/)
 - **API Mocking**: [MSW (Mock Service Worker)](https://mswjs.io/)
+- **Documentation**: [Storybook 8](https://storybook.js.org/)
 - **Testing**: [Jest](https://jestjs.io/) & [Playwright](https://playwright.dev/)
 
 ## 🏁 Getting Started
@@ -39,7 +41,21 @@ npm run test
 
 # Run E2E tests
 npm run test:e2e
+
+# Start Storybook
+npm run storybook
 ```
+
+## 🎨 Design System & Documentation
+
+The platform uses a systematic design approach documented via Storybook. This includes:
+
+- **Design Tokens**: Centralized colors, typography, and spacing scales.
+- **UI Components**: Atomic components built with Tailwind CSS and Shadcn UI.
+- **Dashboard Widgets**: Complex data visualization and interaction modules.
+- **Marketing Components**: Premium landing page sections with Framer Motion animations.
+
+To explore the documentation, run `npm run storybook` and visit `http://localhost:6006`.
 
 ## 📂 Project Structure
 

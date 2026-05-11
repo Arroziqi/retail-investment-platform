@@ -65,7 +65,7 @@ export function PerformanceTrend({ data }: PerformanceTrendProps) {
                   borderColor: 'hsl(var(--border))',
                   borderRadius: '8px'
                 }}
-                formatter={(value: any) => [`IDR ${Number(value).toLocaleString()}`, 'Total Value']}
+                formatter={(value: number | string) => [`IDR ${Number(value).toLocaleString()}`, 'Total Value']}
               />
               <Area 
                 type="monotone" 

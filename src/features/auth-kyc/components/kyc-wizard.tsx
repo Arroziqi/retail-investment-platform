@@ -47,7 +47,7 @@ export function KYCWizard() {
   const mutation = useMutation({
     mutationFn: (values: KYCValues) => 
       apiClient('/api/kyc/submit', { body: values }),
-    onSuccess: async (data: any) => {
+    onSuccess: async (data: { status?: string }) => {
       const status = data.status || 'Pending'
       setKycStatus(status)
       await updateKycStatusCookie(status)
